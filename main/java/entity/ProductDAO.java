@@ -1,6 +1,6 @@
-package entity;
+package main.java.entity;
 
-import core.DB;
+import main.java.core.DB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -124,24 +124,18 @@ public class ProductDAO implements DAO<Product>
     @Override
     public void update(Product product) {
         DB db = DB.getInstance();
-
         try {
             String sql = "UPDATE product SET product_name=?, product_description=?, product_color=?, product_size=?, product_price=? WHERE product_id=?";
             PreparedStatement stmt = db.getPreparedStatement(sql);
 
-            stmt.setInt(1, product.getProductId());
-            stmt.setString(2, product.getProductName());
-            stmt.setString(3, product.getProductDescription());
-            stmt.setString(4, product.getProductColor());
-            stmt.setInt(5, product.getProductSize());
-            stmt.setDouble(6, product.getProductPrice());
+            stmt.setString(1, product.getProductName());
+            stmt.setString(2, product.getProductDescription());
+            stmt.setString(3, product.getProductColor());
+            stmt.setInt(4, product.getProductSize());
+            stmt.setDouble(5, product.getProductPrice());
+            stmt.setInt(6, product.getProductId());
 
-            int rowsUpdated = stmt.executeUpdate();
-
-            if (rowsUpdated > 0) {
-                System.out.println("An existing product was updated successfully!");
-            }
-
+            stmt.executeUpdate();
         } catch (SQLException ex) {
             System.err.println(ex.toString());
         }

@@ -12,13 +12,16 @@
     double unitPrice = Double.parseDouble(request.getParameter("unitPrice"));
     int quantity = Integer.parseInt(request.getParameter("quantity"));
 
-    // Subtotal
+    // Calculate subtotal
     double subtotal = unitPrice * quantity;
 
-    // Discount logic (match your example: quantity 5 = 5%)
+    // Discount logic
     double discountRate = 0.0;
+
     if (quantity == 5) {
-        discountRate = 0.05;
+        discountRate = 0.05;   // 5%
+    } else if (quantity == 10) {
+        discountRate = 0.10;   // 10%
     }
 
     double discountAmount = subtotal * discountRate;
@@ -41,7 +44,7 @@
 
 <p><strong>Discount:</strong>
     <%= (int)(discountRate * 100) %>%
-    (<% if (discountAmount > 0) { %> -$<%= discountAmount %> <% } else { %> $0 <% } %>)
+    (-$<%= discountAmount %>)
 </p>
 
 <p><strong>Total:</strong> $<%= total %></p>

@@ -1,7 +1,7 @@
-package com.example;
+package main.java.com.example;
 
-import entity.Customer;
-import entity.CustomerDAO;
+import main.java.entity.Customer;
+import main.java.entity.CustomerDAO;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;

@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package entity;
+package main.java.entity;
 
-import core.DB;
+import main.java.core.DB;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
